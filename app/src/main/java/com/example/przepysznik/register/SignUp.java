@@ -2,12 +2,13 @@ package com.example.przepysznik.register;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.google.android.gms.tasks.OnCompleteListener;
+
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,12 +47,11 @@ public class SignUp extends AppCompatActivity {
         birthDateEditText = findViewById(R.id.birthDateEditText);
         registerButton = findViewById(R.id.registerButton);
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                registerUser();
-            }
+        registerButton.setOnClickListener(view -> {
+            Log.d("SignUpActivity", "Button clicked");
+            registerUser();
         });
+
 
     }
 
@@ -60,6 +60,8 @@ public class SignUp extends AppCompatActivity {
         final String password = passwordEditText.getText().toString().trim();
         final String nickname = nicknameEditText.getText().toString().trim();
         final String birthDate = birthDateEditText.getText().toString().trim();
+
+
 
         if (TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(getApplicationContext(), "Podaj poprawny adres email!", Toast.LENGTH_SHORT).show();
@@ -102,6 +104,8 @@ public class SignUp extends AppCompatActivity {
                         // Wyświetlenie komunikatu o niepowodzeniu rejestracji
                         Toast.makeText(SignUp.this, "Rejestracja nie powiodła się! Spróbuj ponownie później", Toast.LENGTH_SHORT).show();
                     }
+
+                    Log.d("FirebaseDatabase", "Firebase Database connection attempt");
                 });
 
     }

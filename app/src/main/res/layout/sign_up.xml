@@ -8,36 +8,40 @@
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:layout_marginBottom="8dp"/>
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginBottom="8dp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:layout_below="@id/emailEditText"
-        android:layout_marginBottom="8dp"/>
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/nicknameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/passwordEditText"
+        android:layout_marginBottom="8dp"
         android:hint="Nickname"
         android:inputType="text"
-        android:layout_below="@id/passwordEditText"
-        android:layout_marginBottom="8dp"/>
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/birthDateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/nicknameEditText"
+        android:layout_marginBottom="8dp"
         android:hint="Birth Date"
         android:inputType="date"
-        android:layout_below="@id/nicknameEditText"
-        android:layout_marginBottom="8dp"/>
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/registerButton"

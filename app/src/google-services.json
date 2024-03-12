@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "401541041765",
+    "project_id": "przepysznik-3cc48",
+    "storage_bucket": "przepysznik-3cc48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401541041765:android:a555c9359374cc3f06c08c",
+        "android_client_info": {
+          "package_name": "com.example.przepysznik"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVLt5Gdb-ldt8k2E_v5e_1PVKAnpT2f1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
