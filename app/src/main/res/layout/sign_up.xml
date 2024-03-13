@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/emailEditText"
         android:layout_marginBottom="8dp"
-        android:hint="Password"
+        android:hint="Hasło"
         android:inputType="textPassword"
         android:minHeight="48dp" />
 
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordEditText"
         android:layout_marginBottom="8dp"
-        android:hint="Nickname"
+        android:hint="Ksywka"
         android:inputType="text"
         android:minHeight="48dp" />
 
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/nicknameEditText"
         android:layout_marginBottom="8dp"
-        android:hint="Birth Date"
+        android:hint="Data urodzin"
         android:inputType="date"
         android:minHeight="48dp" />
 
@@ -47,7 +47,7 @@
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="Zarejestruj"
         android:layout_below="@id/birthDateEditText"/>
 
 </RelativeLayout>
