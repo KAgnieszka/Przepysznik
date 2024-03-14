@@ -50,4 +50,16 @@
         android:text="Zarejestruj"
         android:layout_below="@id/birthDateEditText"/>
 
+    <Button
+        android:id="@+id/backtologin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/registerButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="34dp"
+        android:text="Masz już konto? Zaloguj się!" />
+
 </RelativeLayout>

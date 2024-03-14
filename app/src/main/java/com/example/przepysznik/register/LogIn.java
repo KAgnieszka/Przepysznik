@@ -25,6 +25,7 @@ public class LogIn extends AppCompatActivity {
     private EditText passwordEditText;
     private Button loginButton;
     private Button resetPasswordButton;
+    private  Button register;
     private FirebaseAuth mAuth;
 
     @Override
@@ -38,6 +39,7 @@ public class LogIn extends AppCompatActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
         resetPasswordButton = findViewById(R.id.resetPasswordButton);
+        register = findViewById(R.id.register);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +52,13 @@ public class LogIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LogIn.this, ResetPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LogIn.this, SignUp.class);
                 startActivity(intent);
             }
         });
@@ -70,6 +79,7 @@ public class LogIn extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Podaj hasło!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         resetPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,30 +102,6 @@ public class LogIn extends AppCompatActivity {
                             // Logowanie nie powiodło się
                             Log.e("Login", "Logowanie nie powiodło się: " + task.getException().getMessage());
                             Toast.makeText(LogIn.this, "Logowanie nie powiodło się. Spróbuj ponownie.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
-
-    private void resetPassword() {
-        String email = emailEditText.getText().toString().trim();
-
-        if (TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            Toast.makeText(getApplicationContext(), "Podaj poprawny adres email!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Resetowanie hasła
-        mAuth.sendPasswordResetEmail(email)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            // Wiadomość e-mail z linkiem do zresetowania hasła została wysłana
-                            Toast.makeText(LogIn.this, "Wiadomość e-mail z linkiem do zresetowania hasła została wysłana", Toast.LENGTH_LONG).show();
-                        } else {
-                            // Wystąpił błąd podczas wysyłania wiadomości e-mail
-                            Toast.makeText(LogIn.this, "Wystąpił błąd podczas wysyłania wiadomości e-mail", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

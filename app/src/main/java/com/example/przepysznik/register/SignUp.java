@@ -1,5 +1,6 @@
 package com.example.przepysznik.register;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -32,6 +33,7 @@ public class SignUp extends AppCompatActivity {
     private Button registerButton;
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
+    private Button backtologin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +48,19 @@ public class SignUp extends AppCompatActivity {
         nicknameEditText = findViewById(R.id.nicknameEditText);
         birthDateEditText = findViewById(R.id.birthDateEditText);
         registerButton = findViewById(R.id.registerButton);
+        backtologin = findViewById(R.id.backtologin);
 
         registerButton.setOnClickListener(view -> {
             Log.d("SignUpActivity", "Button clicked");
             registerUser();
+        });
+
+        backtologin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this, LogIn.class);
+                startActivity(intent);
+            }
         });
 
 
