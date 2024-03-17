@@ -35,6 +35,15 @@
         tools:ignore="MissingConstraints" />
 
     <Button
+        android:id="@+id/chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Czat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

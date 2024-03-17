@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private Button logout;
-    private Button przycisk, settings;
+    private Button przycisk, settings, chat;
 
 
     //Link do dokumentacji googla: https://developers.google.com/ml-kit/language/translation/android
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         logout = findViewById(R.id.logout);
         przycisk = findViewById(R.id.przycisk);
+        chat = findViewById(R.id.chat);
         settings = findViewById(R.id.settings);
 
         mAuth = FirebaseAuth.getInstance();
@@ -69,6 +70,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Share_Recipe.class);
+                startActivity(intent);
+            }
+        });
+
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Chat.class);
                 startActivity(intent);
             }
         });
