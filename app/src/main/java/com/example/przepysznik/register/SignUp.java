@@ -103,6 +103,7 @@ public class SignUp extends AppCompatActivity {
                         DatabaseReference currentUserRef = usersRef.child(userId);
                         // Tworzenie mapy zawierającej dane użytkownika
                         Map<String, Object> userMap = new HashMap<>();
+                        userMap.put("userId", userId);
                         userMap.put("email", email);
                         userMap.put("nickname", nickname);
                         userMap.put("birthDate", birthDate);

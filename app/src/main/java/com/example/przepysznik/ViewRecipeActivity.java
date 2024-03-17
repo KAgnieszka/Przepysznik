@@ -9,6 +9,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +22,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
     private TextView recipeNameTextView;
     private TextView ingredientsTextView;
     private TextView instructionsTextView;
+    private TextView ratingInfoTextView;
     private RatingBar ratingBar;
     private Button rateButton;
 
@@ -37,27 +39,48 @@ public class ViewRecipeActivity extends AppCompatActivity {
         recipeNameTextView = findViewById(R.id.recipeNameTextView);
         ingredientsTextView = findViewById(R.id.ingredientsTextView);
         instructionsTextView = findViewById(R.id.instructionsTextView);
+        ratingInfoTextView = findViewById(R.id.ratingInfoTextView);
         ratingBar = findViewById(R.id.ratingBar);
         rateButton = findViewById(R.id.rateButton);
 
-        // Pobieranie danych przepisu z poprzedniej aktywności
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null && bundle.containsKey("recipe")) {
-            recipe = (Recipe) bundle.getSerializable("recipe");
-            if (recipe != null) {
-                // Ustawienie nazwy przepisu
-                recipeNameTextView.setText(recipe.getRecipeName());
+        // Pobieranie danych przepisu z bazy danych Firebase
+        DatabaseReference recipeRef = FirebaseDatabase.getInstance().getReference().child("recipes").child(recipe.getRecipeId());
+        recipeRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                recipe = dataSnapshot.getValue(Recipe.class);
+                if (recipe != null) {
+                    // Ustawienie nazwy przepisu
+                    recipeNameTextView.setText(recipe.getRecipeName());
 
-                // Wyświetlenie składników
-                ingredientsTextView.setText(recipe.getIngredients());
+                    // Wyświetlenie składników
+                    ingredientsTextView.setText(recipe.getIngredients());
 
-                // Wyświetlenie instrukcji
-                instructionsTextView.setText(recipe.getInstructions());
+                    // Wyświetlenie instrukcji
+                    instructionsTextView.setText(recipe.getInstructions());
 
-                // Obsługa oceniania przepisu
-                handleRating();
+                    // Wyświetlenie informacji o ocenie
+                    updateRatingInfo();
+
+                    // Obsługa oceniania przepisu
+                    handleRating();
+                } else {
+                    Toast.makeText(ViewRecipeActivity.this, "Nie udało się pobrać danych przepisu", Toast.LENGTH_SHORT).show();
+                }
             }
-        }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(ViewRecipeActivity.this, "Błąd podczas pobierania danych przepisu", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void updateRatingInfo() {
+        float averageRating = recipe.getAverageRating();
+        int numberOfRatings = recipe.getUserRatings().size();
+        String ratingInfo = String.format("Średnia ocena: %.1f (ocenione przez %d użytkowników)", averageRating, numberOfRatings);
+        ratingInfoTextView.setText(ratingInfo);
     }
 
     private void handleRating() {
@@ -88,6 +111,9 @@ public class ViewRecipeActivity extends AppCompatActivity {
 
             // Dodanie oceny użytkownika do listy ocen przepisu
             recipeRef.child("userRatings").child(userId).setValue(currentRating);
+
+            // Aktualizacja informacji o ocenie
+            updateRatingInfo();
 
             // Wyświetlenie komunikatu potwierdzającego ocenę
             Toast.makeText(ViewRecipeActivity.this, "Przepis oceniony", Toast.LENGTH_SHORT).show();

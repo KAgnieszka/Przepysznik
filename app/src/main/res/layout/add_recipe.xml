@@ -49,13 +49,21 @@
         android:layout_marginTop="8dp"
         android:text="Dodaj składnik"/>
 
+    <LinearLayout
+        android:id="@+id/ingredientsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addIngredientButton"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical" />
+
     <TextView
         android:id="@+id/instructionsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Instrukcje"
         android:textSize="18sp"
-        android:layout_below="@id/addIngredientButton"
+        android:layout_below="@id/ingredientsLayout"
         android:layout_marginTop="16dp"/>
 
     <EditText
@@ -75,5 +83,22 @@
         android:layout_below="@id/instructionsEditText"
         android:layout_marginTop="16dp"
         android:text="Dodaj przepis"/>
+
+    <Button
+        android:id="@+id/addImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addRecipeButton"
+        android:layout_marginTop="16dp"
+        android:text="Dodaj zdjęcie"/>
+
+    <ImageView
+        android:id="@+id/recipeImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/addImageButton"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_recipe_image" />
 
 </RelativeLayout>

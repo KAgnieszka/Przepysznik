@@ -14,6 +14,7 @@ public class Recipe {
     private float averageRating;
     private List<String> userRatings;
     private boolean isShared;
+    private String imageURL;
 
     public Recipe() {
         // Pusty konstruktor wymagany dla Firebase
@@ -40,6 +41,14 @@ public class Recipe {
 
     public String getUserId() {
         return userId;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public String getImageURL() {
+        return imageURL;
     }
 
     public void setUserId(String userId) {
