@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
     tools:context=".MainActivity">
 
     <!-- STRONA GŁÓWNA-->
@@ -21,13 +22,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/logout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Wyloguj sie"
-            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/przycisk"
@@ -57,7 +51,7 @@
             android:layout_height="match_parent"
             app:headerLayout="@layout/header"
             app:menu="@menu/main_menu"
-            android:id="@+id/sideMenu"
+            android:id="@+id/side_menu"
             android:layout_gravity="start"
             tools:ignore="MissingConstraints" />
 
