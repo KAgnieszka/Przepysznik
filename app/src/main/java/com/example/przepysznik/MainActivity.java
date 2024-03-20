@@ -1,6 +1,8 @@
 package com.example.przepysznik;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button logout;
     private Button przycisk, settings;
+
+    // --- Menu boczne --- //
+   // DrawerLayout drawerLayout;
 
 
     //Link do dokumentacji googla: https://developers.google.com/ml-kit/language/translation/android
