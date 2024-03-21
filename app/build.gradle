@@ -46,4 +46,13 @@ dependencies {
     //Modul do uzywacia translacji googla przez ML Kit
     implementation 'com.google.mlkit:translate:17.0.2'
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+
+    //uzywane do obslugi MQTT
+    implementation('org.eclipse.paho:org.eclipse.paho.android.service:1.0.2') {
+        exclude module: 'support-v4'
+    }
+
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
 }
+
+
