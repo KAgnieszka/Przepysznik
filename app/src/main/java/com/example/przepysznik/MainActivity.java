@@ -100,31 +100,11 @@ public class MainActivity extends AppCompatActivity {
 
 
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
             });
-
-           // DocumentReference userDocRef = FirebaseFirestore.getInstance().collection("users").document(userId);
-
-           // userDocRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-           //     @Override
-           //     public void onSuccess(DocumentSnapshot documentSnapshot) {
-           //         if (documentSnapshot.exists()) {
-           //             String nickname = documentSnapshot.getString("nickname");
-
-                        // Znajdź element menu w widoku nawigacji
-           //             MenuItem profileInfoItem = sideMenu.getMenu().findItem(R.id.e_mail);
-
-                        // Ustaw ksywkę jako tytuł elementu menu
-           //             profileInfoItem.setTitle("Ksywka: asd" + nickname);
-           //         }
-           //     }
-           // });
-
-
         }
 
         przycisk.setOnClickListener(new View.OnClickListener() {
@@ -161,7 +141,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(id == R.id.ustawienia)
                 {
-                    Toast.makeText(MainActivity.this, "Wybrano ustawienia", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, UserSettings.class);
+                    startActivity(intent);
                 }
                 if(id == R.id.logout)
                 {
@@ -174,7 +155,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(id == R.id.about)
                 {
-                    Toast.makeText(MainActivity.this, "Wybrano O nas", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, AboutUs.class);
+                    startActivity(intent);
                 }
                 if(id == R.id.rate_us)
                 {

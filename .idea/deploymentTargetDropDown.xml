@@ -2,21 +2,20 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="AboutUs">
+        <State />
+      </entry>
+      <entry key="ChangeProfile">
+        <State />
+      </entry>
+      <entry key="Settings">
+        <State />
+      </entry>
+      <entry key="UserSettings">
+        <State />
+      </entry>
       <entry key="app">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="SERIAL_NUMBER" />
-                  <value value="adb-RFCTA1PXFJM-n2Gs9b._adb-tls-connect._tcp" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-03-20T18:08:47.584518Z" />
-        </State>
+        <State />
       </entry>
     </value>
   </component>

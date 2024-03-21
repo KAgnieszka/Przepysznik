@@ -90,6 +90,14 @@
             android:exported="true">
         </activity>
 
+        <activity android:name=".UserSettings"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".AboutUs"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>
