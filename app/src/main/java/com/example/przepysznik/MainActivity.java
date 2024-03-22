@@ -151,7 +151,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(id == R.id.share)
                 {
+                    final String appPackageName = getPackageName();
                     Toast.makeText(MainActivity.this, "Wybrano udostępnij", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_SEND);
+                    intent.putExtra(Intent.EXTRA_TEXT, "Sprawdź tą apkę\n" + "https://play.google.com/store/apps/details?id" + appPackageName);
+                    intent.setType("text/plain");
+                    startActivity(Intent.createChooser(intent, "Udostępnij tą aplikację."));
                 }
                 if(id == R.id.about)
                 {
@@ -160,7 +166,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(id == R.id.rate_us)
                 {
-                    Toast.makeText(MainActivity.this, "Wybrano Ocen nas", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, RateUs.class);
+                    startActivity(intent);
                 }
 
                 return false;
