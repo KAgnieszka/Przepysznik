@@ -12,6 +12,15 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.przepysznik.register.LogIn;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,8 +42,6 @@ import com.google.mlkit.nl.translate.TranslatorOptions;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-
-
     private Button przycisk, settings;
 
     // --- Menu boczne --- //
@@ -51,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
     public final Translator polishEnglishTranslator =
             Translation.getClient(options);
      */
+
+    // --- REKLAMY --- //
+    private InterstitialAd mInterstitialAd;
+    private Button adBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,6 +185,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // --- REKLAMY --- //
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        adBtn = findViewById(R.id.reklama);
+        AdView mAdView = findViewById(R.id.reklama1);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        mInterstitialAd = null;
+                    }
+                });
+
+        adBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(MainActivity.this);
+                }
+            }
+        });
     }
 
 }
