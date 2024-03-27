@@ -41,6 +41,18 @@
         app:layout_constraintVertical_bias="0.32" />
 
     <EditText
+        android:id="@+id/tytulText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Tytul"
+        app:layout_constraintBottom_toTopOf="@+id/wiadomoscText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
         android:id="@+id/wiadomoscText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
