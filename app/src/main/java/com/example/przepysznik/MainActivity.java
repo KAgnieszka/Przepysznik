@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,7 +43,7 @@ import com.google.mlkit.nl.translate.TranslatorOptions;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private Button przycisk, settings;
+    private Button przycisk, settings, gps;
 
     // --- Menu boczne --- //
     DrawerLayout drawerLayout;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         przycisk = findViewById(R.id.przycisk);
         settings = findViewById(R.id.settings);
         sideMenu = findViewById(R.id.side_menu);
+        gps = findViewById(R.id.gps);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -130,6 +132,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Settings.class);
+                startActivity(intent);
+            }
+        });
+
+        // Sklepy w pobliżu - GPS
+        gps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.google.com/maps/dir/?api=1&origin=" + "&destination=sklepy spożywcze");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                intent.setPackage("com.google.android.apps.maps");
                 startActivity(intent);
             }
         });

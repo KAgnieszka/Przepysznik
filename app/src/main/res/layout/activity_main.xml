@@ -61,6 +61,14 @@
             ads:adSize="BANNER"
             ads:adUnitId="ca-app-pub-3940256099942544/9214589741"/>
 
+        <Button
+            android:id="@+id/gps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pokaż sklepy w pobliżu"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+
     </LinearLayout>
 
     <!-- MENU BOCZNE -->
