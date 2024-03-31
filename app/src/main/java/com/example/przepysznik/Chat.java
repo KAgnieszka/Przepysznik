@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.przepysznik.register.LogIn;
+import com.hivemq.client.mqtt.mqtt5.Mqtt5Client;
 
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
@@ -26,13 +27,21 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.eclipse.paho.android.service.MqttAndroidClient;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
+import java.nio.charset.StandardCharsets;
 
 
 //Uzyto Ecplise Paho library
 
 public class Chat extends AppCompatActivity {
 
-    private static final String Broker_URL = "udp://27df6e50fa3b437fa84505b6f2acd7a0.s1.eu.hivemq.cloud:8883";
+    private String Broker_URL = "27df6e50fa3b437fa84505b6f2acd7a0.s1.eu.hivemq.cloud";
 
     private MqttAndroidClient client;
     private MqttConnectOptions options;
@@ -42,6 +51,16 @@ public class Chat extends AppCompatActivity {
     private TextView polaczenieTest, mqttMessage;
     public EditText wiadomoscText, tytulText;
     public String message, titleText;
+
+    String clientId = MqttClient.generateClientId();
+
+    final Mqtt5Client client5 = Mqtt5Client.builder()
+            .identifier("sensor-" + clientId) // use a unique identifier
+            .serverHost(Broker_URL)
+            .automaticReconnectWithDefaultConfig() // the client automatically reconnects
+            .serverPort(8883) // this is the port of your cluster, for mqtt it is the default port 8883
+            .sslWithDefaultConfig() // establish a secured connection to HiveMQ Cloud using TLS
+            .build();
 
 
     @Override
@@ -55,7 +74,7 @@ public class Chat extends AppCompatActivity {
         mqttMessage = findViewById(R.id.mqttMessage);
         tytulText = findViewById(R.id.tytulText);
 
-        String clientId = MqttClient.generateClientId();
+
         client = new MqttAndroidClient(this.getApplicationContext(), Broker_URL, clientId);
 
         options = new MqttConnectOptions();
@@ -63,12 +82,13 @@ public class Chat extends AppCompatActivity {
         options.setPassword(PASSWORD.toCharArray());
 
 
-
         poleczeniePrzycisk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
+                /*try {
                     client.connect(options);
+                    Log.d(TAG, "MQTT connected");
+                    Log.d(TAG, client.getServerURI());
                 } catch (MqttException e) {
                     throw new RuntimeException(e);
                 }
@@ -77,7 +97,22 @@ public class Chat extends AppCompatActivity {
                     client.subscribe("Test", 0);
                 } catch (MqttException e) {
                     throw new RuntimeException(e);
-                }
+                }*/
+
+                client5.toBlocking().connectWith()
+                        .simpleAuth() // using authentication, which is required for a secure connection
+                        .username(USERNAME) // use the username and password you just created
+                        .password(PASSWORD.getBytes())
+                        .applySimpleAuth()
+                        .willPublish() // the last message, before the client disconnects
+                        .topic("Test")
+                        .payload(("User: "+clientId+" connected").getBytes())
+                        .applyWillPublish()
+                        .send();
+
+                polaczenieTest.setText("Połączono z MQTT");
+
+
             }
         });
 
@@ -90,13 +125,19 @@ public class Chat extends AppCompatActivity {
                 Log.d(TAG, "Topic: " + titleText + "\n");
                 Log.d(TAG, "message: " + message.getBytes());
                 MqttMessage messageText= new MqttMessage(message.getBytes());
+                /*
                 try {
                     client.publish(titleText, messageText);
                     client.subscribe("Test", 0);
                 } catch (MqttException e) {
                     throw new RuntimeException(e);
-                }
+                }*/
 
+
+                client5.toBlocking().publishWith()
+                        .topic(titleText)
+                        .payload(messageText.getPayload()) //Pobiera tekst z pola do wpisania wiadomosci
+                        .send();
             }
         });
 
