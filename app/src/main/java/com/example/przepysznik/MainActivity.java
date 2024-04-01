@@ -43,7 +43,9 @@ import com.google.mlkit.nl.translate.TranslatorOptions;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private Button przycisk, settings, gps;
+
+    private Button logout;
+    private Button przycisk, settings, gps, chat;
 
     // --- Menu boczne --- //
     DrawerLayout drawerLayout;
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         przycisk = findViewById(R.id.przycisk);
+        chat = findViewById(R.id.chat);
         settings = findViewById(R.id.settings);
         sideMenu = findViewById(R.id.side_menu);
         gps = findViewById(R.id.gps);
@@ -136,8 +139,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Chat.class);
+                startActivity(intent);
+            }
+        });
+
+
         // Sklepy w pobliżu - GPS
         gps.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse("https://www.google.com/maps/dir/?api=1&origin=" + "&destination=sklepy spożywcze");
