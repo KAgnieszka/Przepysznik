@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +33,7 @@ public class Share_Recipe extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(Share_Recipe.this, AddRecipeActivity.class));
             }
+
         });
 
         fetchRecipes();
@@ -59,6 +61,7 @@ public class Share_Recipe extends AppCompatActivity {
             }
         });
     }
+
 
     private View createRecipeView(final Recipe recipe) {
         View recipeView = getLayoutInflater().inflate(R.layout.recipe_item, null);
@@ -108,7 +111,20 @@ public class Share_Recipe extends AppCompatActivity {
     }
 
     private void deleteRecipe(String recipeId) {
-        mDatabase.child(recipeId).removeValue();
-        Toast.makeText(this, "Przepis został usunięty", Toast.LENGTH_SHORT).show();
+        if (recipeId != null) { // Sprawdź, czy recipeId nie jest null
+            mDatabase.child(recipeId).removeValue(new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                    if (error == null) {
+                        Toast.makeText(Share_Recipe.this, "Przepis został usunięty", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(Share_Recipe.this, "Wystąpił błąd podczas usuwania przepisu", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(this, "Nie można usunąć przepisu - brak ID przepisu", Toast.LENGTH_SHORT).show();
+        }
     }
+
 }
