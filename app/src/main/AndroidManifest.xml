@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -20,6 +22,15 @@
         android:theme="@style/Theme.Przepysznik"
         android:enableOnBackInvokedCallback="true"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/gma_ad_services_config"
+            tools:replace="android:resource" />
 
         <activity
             android:name=".MainActivity"
@@ -95,14 +106,29 @@
         <activity android:name=".Settings"
             android:exported="true">
         </activity>
-
+      
         <activity android:name=".Chat"
             android:exported="true">
         </activity>
 
-    <service android:name="org.eclipse.paho.android.service.MqttService">
-    </service>
+    
+        <activity android:name=".UserSettings"
+            android:exported="true">
+        </activity>
 
+        <activity android:name=".AboutUs"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".RateUs"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".UserRatings"
+            android:exported="true">
+        </activity>
+        <service android:name="org.eclipse.paho.android.service.MqttService">
+        </service>
     </application>
 
 </manifest>

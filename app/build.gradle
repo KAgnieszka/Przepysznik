@@ -45,10 +45,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.3.0'
     implementation platform('com.google.firebase:firebase-bom:32.7.4')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.android.gms:play-services-ads-lite:23.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    //Modul do uzywacia translacji googla przez ML Kit
+    //Modul do uzywania translacji googla przez ML Kit
     implementation 'com.google.mlkit:translate:17.0.2'
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
 

@@ -1,4 +1,24 @@
 <resources>
     <string name="app_name">Przepysznik</string>
     <string name="przepis">Przepisz</string>
+    <string name="podaj_nowe_dane">Podaj nowe dane</string>
+    <string name="nie_zmieniaj_danych">Nie zmieniaj danych</string>
+    <string name="zapisz">Zapisz</string>
+    <string name="has_o">Hasło</string>
+    <string name="ksywka">Ksywka</string>
+    <string name="powt_rz_has_o">Powtórz hasło</string>
+    <string name="strona_g_wna">Strona główna</string>
+    <string name="o_nas">O nas</string>
+    <string name="o_nas_opis">Jako zespół, łączy nas pasja do tworzenia nowoczesnych rozwiązań mobilnych. Każdy z nas wnosi do projektu swoje unikalne doświadczenie i umiejętności, aby zapewnić, że nasza aplikacja będzie nie tylko funkcjonalna, ale także przyjazna dla użytkownika i innowacyjna. Wrazie problemów z aplikacją zapraszamy do kontaktu: </string>
+    <string name="telefon_48_352208492">Telefon: +48 352208492</string>
+    <string name="e_mail_spokoquzko_wp_pl">E-mail: spokoquzko@wp.pl</string>
+    <string name="powr_t">Powrót</string>
+    <string name="ocen_nasz_aplikacj">Ocen naszą aplikację</string>
+    <string name="aktualna_ocena">Aktualna ocena:</string>
+    <string name="mo_e_p_niej">Może później</string>
+    <string name="oce">Oceń</string>
+    <string name="napisz_opini">Napisz opinię...</string>
+    <string name="powr_t_na_g_wn">Powrót na główną</string>
+    <string name="opinie_u_ytkownik_w">Opinie użytkowników</string>
+    <string name="powr_t_do_oce_nas">Powrót do (Oceń nas)</string>
 </resources>
