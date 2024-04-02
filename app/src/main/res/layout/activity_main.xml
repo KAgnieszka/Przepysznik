@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <!--
+
     <Button
         android:id="@+id/przycisk"
         android:layout_width="match_parent"
@@ -43,8 +43,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
--->
   
         <TextView
             android:id="@+id/textView"
@@ -65,7 +63,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logout"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="DuplicateIds,MissingConstraints" />
 
         <Button
             android:id="@+id/settings"
@@ -74,7 +72,8 @@
             android:layout_margin="16dp"
             android:text="Ustawienia"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="DuplicateIds" />
 
         <Button
             android:id="@+id/reklama"
