@@ -45,8 +45,6 @@ public class ViewRecipeActivity extends AppCompatActivity {
                     recipeNameTextView.setText(recipe.getRecipeName());
                     recipeIngredientsTextView.setText(recipe.getIngredients());
                     recipeInstructionsTextView.setText(recipe.getInstructions());
-                    // Tutaj należy załadować zdjęcie przepisu z bazy danych
-                    // Możesz użyć biblioteki do ładowania obrazów, np. Picasso lub Glide
                 }
             }
 
@@ -67,11 +65,8 @@ public class ViewRecipeActivity extends AppCompatActivity {
     private void rateRecipe() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            // Tutaj możesz dodać logikę oceniania przepisu
-            // Na przykład wyświetlenie okna dialogowego z możliwością wyboru oceny
             Toast.makeText(ViewRecipeActivity.this, "Oceniasz przepis...", Toast.LENGTH_SHORT).show();
         } else {
-            // Jeśli użytkownik nie jest zalogowany, możesz przekierować go do ekranu logowania
             Toast.makeText(ViewRecipeActivity.this, "Aby ocenić przepis, musisz być zalogowany", Toast.LENGTH_SHORT).show();
         }
     }
