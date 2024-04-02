@@ -52,6 +52,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".EditRecipeActivity"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".register.LogIn"
             android:exported="true">
             <intent-filter>
@@ -92,6 +103,7 @@
             </intent-filter>
             -->
         </activity>
+
         <activity android:name=".AddRecipeActivity"
             android:exported="true">
             <!--

@@ -14,7 +14,7 @@ public class Recipe {
     private float averageRating;
     private List<String> userRatings;
     private boolean isShared;
-    private String imageURL;
+    private String photoUrl;
 
     public Recipe() {
         // Pusty konstruktor wymagany dla Firebase
@@ -41,14 +41,6 @@ public class Recipe {
 
     public String getUserId() {
         return userId;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
-
-    public String getImageURL() {
-        return imageURL;
     }
 
     public void setUserId(String userId) {
@@ -103,7 +95,15 @@ public class Recipe {
         isShared = shared;
     }
 
-    // Metoda do mapowania obiektu na format zrozumiały dla Firebase
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    // Metoda do mapowania obiektu
     public Map<String, Object> toMap() {
         Map<String, Object> map = new HashMap<>();
         map.put("recipeId", recipeId);
@@ -114,6 +114,7 @@ public class Recipe {
         map.put("averageRating", averageRating);
         map.put("userRatings", userRatings);
         map.put("isShared", isShared);
+        map.put("photoUrl", photoUrl);
         return map;
     }
 }
