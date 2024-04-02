@@ -21,4 +21,6 @@
     <string name="powr_t_na_g_wn">Powrót na główną</string>
     <string name="opinie_u_ytkownik_w">Opinie użytkowników</string>
     <string name="powr_t_do_oce_nas">Powrót do (Oceń nas)</string>
+    <string name="open">Open drawer menu</string>
+    <string name="close">Close drawer menu</string>
 </resources>
