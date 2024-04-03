@@ -1,8 +1,6 @@
 package com.example.przepysznik;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Recipe {
@@ -12,7 +10,7 @@ public class Recipe {
     private String ingredients;
     private String instructions;
     private float averageRating;
-    private List<String> userRatings;
+    private Map<String, Integer> userRatings;
     private boolean isShared;
     private String photoUrl;
 
@@ -27,7 +25,7 @@ public class Recipe {
         this.ingredients = ingredients;
         this.instructions = instructions;
         this.averageRating = 0.0f; // Domyślna średnia ocena
-        this.userRatings = new ArrayList<>();
+        this.userRatings = new HashMap<>();
         this.isShared = false; // Domyślnie przepis nie jest udostępniony
     }
 
@@ -79,11 +77,11 @@ public class Recipe {
         this.averageRating = averageRating;
     }
 
-    public List<String> getUserRatings() {
+    public Map<String, Integer> getUserRatings() {
         return userRatings;
     }
 
-    public void setUserRatings(List<String> userRatings) {
+    public void setUserRatings(Map<String, Integer> userRatings) {
         this.userRatings = userRatings;
     }
 
@@ -102,6 +100,30 @@ public class Recipe {
     public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
     }
+    // Metoda dodająca ocenę użytkownika
+    public void addUserRating(String userId, int rating) {
+        userRatings.put(userId, rating);
+    }
+
+    // Metoda obliczająca średnią ocenę przepisu
+    public float calculateAverageRating() {
+        if (userRatings == null || userRatings.isEmpty()) {
+            return 0.0f; // Jeśli brak ocen lub mapa jest nullem, zwróć 0
+        }
+
+        int totalRating = 0;
+        int numRatings = 0;
+
+        // Iteracja po mapie ocen użytkowników
+        for (Map.Entry<String, Integer> entry : userRatings.entrySet()) {
+            totalRating += entry.getValue(); // Dodanie oceny
+            numRatings++; // Zwiększenie liczby ocen
+        }
+
+        // Obliczenie średniej oceny
+        return (float) totalRating / numRatings;
+    }
+
 
     // Metoda do mapowania obiektu
     public Map<String, Object> toMap() {

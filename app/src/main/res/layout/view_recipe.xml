@@ -1,49 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/recipeImageView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/default_recipe_image"
-        android:layout_marginBottom="16dp"/>
-
-    <TextView
-        android:id="@+id/recipeNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeImageView"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:text="Recipe Name"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:id="@+id/recipeIngredientsTextView"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/recipeNameTextView"
-        android:textSize="16sp"
-        android:text="Ingredients"/>
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/recipeInstructionsTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeIngredientsTextView"
-        android:textSize="16sp"
-        android:text="Instructions"/>
+        <ImageView
+            android:id="@+id/recipeImageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_recipe_image"
+            android:layout_marginBottom="16dp"/>
 
-    <Button
-        android:id="@+id/rateRecipeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeInstructionsTextView"
-        android:text="Rate Recipe"
-        android:layout_marginTop="16dp"/>
+        <TextView
+            android:id="@+id/recipeNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/averageRatingTextView"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="Recipe Name"
+            android:layout_marginTop="16dp"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/skladniki"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_below="@id/recipeNameTextView"
+            android:text="Składniki: "/>
+
+        <TextView
+            android:id="@+id/recipeIngredientsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/skladniki"
+            android:textSize="16sp"
+            android:text="Ingredients"/>
+
+        <TextView
+            android:id="@+id/metodyka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_below="@id/recipeIngredientsTextView"
+            android:text="Przepis: "/>
+
+        <TextView
+            android:id="@+id/recipeInstructionsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/metodyka"
+            android:textSize="16sp"
+            android:text="Instructions"/>
+
+        <TextView
+            android:id="@+id/averageRatingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recipeImageView"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Średnia ocena: "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/rateRecipeButton"
+            android:layout_width="139dp"
+            android:layout_height="41dp"
+            android:layout_below="@+id/recipeInstructionsTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="279dp"
+            android:layout_marginEnd="256dp"
+            android:layout_marginBottom="27dp"
+            android:text="Oceń przepis" />
+
+    </RelativeLayout>
+</ScrollView>

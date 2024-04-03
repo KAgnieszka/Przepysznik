@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -47,6 +48,11 @@ public class AddRecipeActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private StorageReference storageReference;
 
+    private CheckBox shareRecipeCheckBox;
+
+
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +70,8 @@ public class AddRecipeActivity extends AppCompatActivity {
         addIngredientButton = findViewById(R.id.addIngredientButton);
         addPhotoButton = findViewById(R.id.addPhotoButton);
         imageView = findViewById(R.id.imageView);
-        ingredientsLayout = findViewById(R.id.ingredientsLayout); // Dodane
+        ingredientsLayout = findViewById(R.id.ingredientsLayout);
+        shareRecipeCheckBox = findViewById(R.id.shareRecipeCheckBox);
 
         ingredientsList = new ArrayList<>();
 
@@ -111,15 +118,17 @@ public class AddRecipeActivity extends AppCompatActivity {
 
                 // Upload zdjęcia
                 imageReference.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
-                    // Get the download URL of the uploaded image
+
                     imageReference.getDownloadUrl().addOnSuccessListener(uri -> {
                         String photoUrl = uri.toString();
+                        boolean isShared = shareRecipeCheckBox.isChecked();
 
                         // Utwórz obiekt Recipe z danymi przepisu
                         Recipe recipe = new Recipe(recipeId, userId, recipeName, ingredientsList.toString(), instructions);
-                        recipe.setPhotoUrl(photoUrl); // Ustaw URL zdjęcia
+                        recipe.setPhotoUrl(photoUrl);
+                        recipe.setShared(isShared);
 
-                        // Zapisz przepis w bazie danych
+
                         mDatabase.child(recipeId).setValue(recipe).addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 Toast.makeText(AddRecipeActivity.this, "Przepis dodany pomyślnie", Toast.LENGTH_SHORT).show();
@@ -140,6 +149,7 @@ public class AddRecipeActivity extends AppCompatActivity {
             Toast.makeText(AddRecipeActivity.this, "Aby dodać przepis, musisz być zalogowany", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private void addIngredient() {
         String ingredient = ingredientsEditText.getText().toString().trim();
