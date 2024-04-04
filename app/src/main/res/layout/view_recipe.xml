@@ -77,12 +77,51 @@
             android:layout_width="139dp"
             android:layout_height="41dp"
             android:layout_below="@+id/recipeInstructionsTextView"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginTop="279dp"
-            android:layout_marginEnd="256dp"
-            android:layout_marginBottom="27dp"
             android:text="Oceń przepis" />
+
+        <EditText
+            android:id="@+id/commentEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rateRecipeButton"
+            android:hint="Dodaj komentarz..."
+            android:inputType="textMultiLine"
+            android:padding="8dp" />
+
+        <Button
+            android:id="@+id/addCommentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/commentEditText"
+            android:layout_marginTop="8dp"
+            android:text="Dodaj komentarz" />
+
+        <TextView
+            android:id="@+id/commentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:layout_below="@+id/addCommentButton"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/commentTimeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/commentTextView"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="20sp" />
+
+        <!-- RecyclerView for displaying comments -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewComments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/commentTimeTextView"
+            android:layout_marginTop="16dp"/>
 
     </RelativeLayout>
 </ScrollView>

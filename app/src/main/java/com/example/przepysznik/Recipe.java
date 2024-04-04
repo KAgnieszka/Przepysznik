@@ -14,6 +14,9 @@ public class Recipe {
     private boolean isShared;
     private String photoUrl;
 
+    private String comment;
+    private String commentTime;
+
     public Recipe() {
         // Pusty konstruktor wymagany dla Firebase
     }
@@ -31,6 +34,26 @@ public class Recipe {
 
     public String getRecipeId() {
         return recipeId;
+    }
+
+    // Metoda do pobierania komentarza
+    public String getComment() {
+        return comment;
+    }
+
+    // Metoda do ustawiania komentarza
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    // Metoda do pobierania czasu dodania komentarza
+    public String getCommentTime() {
+        return commentTime;
+    }
+
+    // Metoda do ustawiania czasu dodania komentarza
+    public void setCommentTime(String commentTime) {
+        this.commentTime = commentTime;
     }
 
     public void setRecipeId(String recipeId) {
