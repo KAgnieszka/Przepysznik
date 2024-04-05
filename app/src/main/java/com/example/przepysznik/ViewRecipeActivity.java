@@ -47,13 +47,14 @@ public class ViewRecipeActivity extends AppCompatActivity {
     private Button addCommentButton;
     private RecyclerView recyclerView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_recipe);
         imageView = findViewById(R.id.recipeImageView);
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("recipes");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         ImageView recipeImageView = findViewById(R.id.recipeImageView);
         TextView recipeNameTextView = findViewById(R.id.recipeNameTextView);
@@ -71,7 +72,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
         recipeId = getIntent().getStringExtra("recipeId");
 
         // Pobieranie informacji o przepisie z bazy danych
-        mDatabase.child(recipeId).addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.child("recipes").child(recipeId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Recipe recipe = dataSnapshot.getValue(Recipe.class);
@@ -145,7 +146,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
     }
 
     private void saveRating(String userId, int rating) {
-        DatabaseReference userRatingRef = mDatabase.child(recipeId).child("userRatings").child(userId);
+        DatabaseReference userRatingRef = mDatabase.child("recipes").child(recipeId).child("userRatings").child(userId);
         userRatingRef.setValue(rating).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -171,7 +172,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
         }
 
         String userId = mAuth.getCurrentUser().getUid(); // Pobieramy ID bieżącego użytkownika
-        DatabaseReference userCommentRef = mDatabase.child(recipeId).child("userComments").push(); // Tworzymy nowy losowy identyfikator dla komentarza
+        DatabaseReference userCommentRef = mDatabase.child("recipes").child(recipeId).child("userComments").push(); // Tworzymy nowy losowy identyfikator dla komentarza
         userCommentRef.child("userId").setValue(userId); // Ustawiamy ID użytkownika
         userCommentRef.child("comment").setValue(comment); // Ustawiamy treść komentarza
         userCommentRef.child("timestamp").setValue(ServerValue.TIMESTAMP) // Ustawiamy timestamp
@@ -191,29 +192,23 @@ public class ViewRecipeActivity extends AppCompatActivity {
     }
 
     private void loadComments() {
-        DatabaseReference commentsRef = mDatabase.child(recipeId).child("userComments");
-        commentsRef.addValueEventListener(new ValueEventListener() {
+        mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                DataSnapshot x = dataSnapshot.child("recipes").child(recipeId).child("userComments");
                 List<UserComment> commentList = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String userId = snapshot.child("userId").getValue(String.class);
-                    String commentText = snapshot.child("comment").getValue(String.class);
-                    long timestamp = snapshot.child("timestamp").getValue(Long.class);
-                    String commentTime = DateFormat.getDateTimeInstance().format(new Date(timestamp));
-
-                    // Pobierz nick z odpowiedniego węzła w bazie danych
-                    String nick = snapshot.child("nickname").getValue(String.class);
-
-
-
-
-                    // Tworzenie nowego obiektu UserComment
-                    UserComment newComment = new UserComment(userId, nick, commentText, commentTime);
+                for (DataSnapshot snapshot : x.getChildren()) {
+           String timestamp = snapshot.child("timestamp").getValue().toString();
+                    String comment = snapshot.child("comment").getValue().toString();
+                   String userId = snapshot.child("userId").getValue(String.class);
+                    String nickname = dataSnapshot.child("Users").child(userId).child("nickname").getValue().toString();
+                    UserComment newComment = new UserComment(userId, nickname,comment, timestamp);
 
                     // Dodawanie nowego komentarza do listy
                     commentList.add(newComment);
+
                 }
+
                 // Tworzenie adaptera komentarzy i ustawienie go na RecyclerView
                 CommentAdapter commentAdapter = new CommentAdapter(commentList);
                 recyclerView.setAdapter(commentAdapter);
@@ -225,6 +220,4 @@ public class ViewRecipeActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
