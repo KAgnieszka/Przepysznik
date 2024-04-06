@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,11 +29,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ViewRecipeActivity extends AppCompatActivity {
 
@@ -152,12 +162,81 @@ public class ViewRecipeActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(ViewRecipeActivity.this, "Dziękujemy za ocenę przepisu!", Toast.LENGTH_SHORT).show();
+                    // Wysyłanie powiadomienia do właściciela przepisu
+                    sendNotificationToRecipeOwner(recipeId);
                 } else {
                     Toast.makeText(ViewRecipeActivity.this, "Błąd podczas zapisywania oceny", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
+    private void sendNotificationToUser(String userId) {
+        // Pobierz token urządzenia użytkownika z bazy danych na podstawie jego identyfikatora
+        mDatabase.child("users").child(userId).child("deviceToken").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String deviceToken = dataSnapshot.getValue(String.class);
+
+                // Wysyłanie powiadomienia za pomocą FCM
+                JSONObject notification = new JSONObject();
+                JSONObject notificationBody = new JSONObject();
+                try {
+                    notificationBody.put("title", "Nowa ocena przepisu");
+                    notificationBody.put("message", "Twojemu przepisowi została wystawiona nowa ocena!");
+                    notification.put("to", deviceToken);
+                    notification.put("data", notificationBody);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                // Wyślij żądanie HTTP do usługi FCM
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, "https://fcm.googleapis.com/fcm/send", notification,
+                        response -> {
+                            // Powiadomienie wysłane pomyślnie
+                            Log.d("Notification", "Notification sent successfully");
+                        },
+                        error -> {
+                            // Błąd podczas wysyłania powiadomienia
+                            Log.d("Notification", "Notification send failed: " + error.getMessage());
+                        }) {
+                    @Override
+                    public Map<String, String> getHeaders() {
+                        Map<String, String> headers = new HashMap<>();
+                        headers.put("Content-Type", "application/json");
+                        headers.put("Authorization", "key=BGEf9zOQoB2gPFe7zXl-IwRUKkWYznsrrOIsMyNGyT_pakDPRJPc-ODSZLuo7SZzpzjgSRTsevjCnjaDjU54Nwo");
+                        return headers;
+                    }
+                };
+
+                // Dodaj żądanie do kolejki
+                Volley.newRequestQueue(ViewRecipeActivity.this).add(jsonObjectRequest);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Obsługa błędu pobierania tokena urządzenia
+                Log.e("Notification", "Error retrieving device token: " + databaseError.getMessage());
+            }
+        });
+    }
+    private void sendNotificationToRecipeOwner(String recipeId) {
+        // Pobierz identyfikator właściciela przepisu z bazy danych
+        mDatabase.child("recipes").child(recipeId).child("userId").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String recipeOwnerId = dataSnapshot.getValue(String.class);
+                // Wyślij powiadomienie do właściciela przepisu
+                sendNotificationToUser(recipeOwnerId);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Notification", "Error retrieving recipe owner ID: " + databaseError.getMessage());
+            }
+        });
+    }
+
 
     private void foodPhoto(String photoUrl) {
         Picasso.get().load(photoUrl).into(imageView);
