@@ -13,8 +13,6 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -23,10 +21,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     packagingOptions {
         resources {
             excludes += ['META-INF/INDEX.LIST', 'META-INF/io.netty.versions.properties']
@@ -35,7 +35,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -49,25 +48,21 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads-lite:23.0.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'com.android.volley:volley:1.2.1'
-    implementation 'org.testng:testng:6.9.6'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    //Modul do uzywania translacji googla przez ML Kit
-    implementation 'com.google.mlkit:translate:17.0.2'
-    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
 
-    //uzywane do obslugi MQTT
+    // Wyklucz moduł junit
+    implementation ('org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0') {
+        exclude group: 'junit', module: 'junit'
+    }
+
+    // Moduł do uzywania translacji googla przez ML Kit
+    implementation 'com.google.mlkit:translate:17.0.2'
+    implementation 'org.hamcrest:hamcrest-core:2.2'
+
+    // Moduł używany do obsługi MQTT
     implementation('org.eclipse.paho:org.eclipse.paho.android.service:1.0.2') {
         exclude module: 'support-v4'
     }
 
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
-    testImplementation 'org.mockito:mockito-core:3.12.4'
-
-
     implementation('com.hivemq:hivemq-mqtt-client:1.3.3')
 }
-
-
