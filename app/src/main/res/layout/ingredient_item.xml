@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_marginTop="8dp">
+    android:layout_marginTop="8dp"
+    android:background="@color/background_color">
 
     <TextView
         android:id="@+id/ingredientTextView"
@@ -15,13 +16,15 @@
         android:textColor="@android:color/black"
         android:text="Ingredient Name" />
 
-    <Button
+    <TextView
         android:id="@+id/removeIngredientButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="16dp"
+        android:background="@color/Buttons"
+        android:gravity="center"
+        android:padding="8dp"
         android:text="Usuń"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/colorAccent"
-        android:textColor="@android:color/white"/>
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

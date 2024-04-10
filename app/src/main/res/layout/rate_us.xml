@@ -1,91 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#CAFF8C"
-    android:padding="20dp"
-    android:orientation="vertical">
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFF"
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        android:text="@string/ocen_nasz_aplikacj"
-        android:textStyle="bold"
-        android:textSize="25sp"
         android:layout_marginBottom="20dp"
-        />
+        android:background="#75FFFFFF"
+        android:text="@string/ocen_nasz_aplikacj"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RatingBar
+        android:id="@+id/rating_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:id="@+id/rating_bar"
-        android:layout_below="@id/tittle"
-        android:layout_centerInParent="true"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tittle"
+        app:layout_constraintVertical_bias="0.066" />
 
     <TextView
+        android:id="@+id/rateCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:id="@+id/rateCount"
-        android:layout_below="@id/rating_bar"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rating_bar" />
 
     <EditText
+        android:id="@+id/opinia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/napisz_opini"
-        android:id="@+id/opinia"
-        android:layout_below="@id/rateCount"
-        android:background="@color/white"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rateCount" />
 
-    <Button
+    <TextView
         android:id="@+id/backToHome"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/opinia"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/Buttons"
+        android:gravity="center"
+        android:padding="16dp"
         android:text="@string/mo_e_p_niej"
+        android:textColor="#FFFFFF"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf = "parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/opinia" />
 
-    <Button
+    <TextView
         android:id="@+id/rateButton"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
+        android:background="@color/Buttons"
+        android:gravity="center"
+        android:padding="16dp"
         android:text="@string/oce"
+        android:textColor="#FFFFFF"
         android:textSize="15sp"
-        android:layout_below="@id/opinia"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_alignParentEnd="true"
-        />
+        app:layout_constraintTop_toBottomOf="@id/opinia" />
+
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:id="@+id/showRating"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/backToHome"/>
-
-    <Button
-        android:id="@+id/showRatingApps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:text="Pokaż opinie użytkowników"
-        android:textSize="15sp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backToHome" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/showRatingApps"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@color/Buttons"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Pokaż opinie użytkowników"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

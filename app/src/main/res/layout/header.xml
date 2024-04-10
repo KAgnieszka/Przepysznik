@@ -4,7 +4,7 @@
     android:layout_height="200dp"
     android:padding="10dp"
     android:orientation="vertical"
-    android:background="@drawable/logo"
+    android:background="@drawable/logo1"
     android:gravity="bottom"
     >
 

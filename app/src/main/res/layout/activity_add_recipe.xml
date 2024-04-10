@@ -2,7 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/background_color"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,32 +17,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nazwa przepisu"
+            android:background="#75FFFFFF"
             android:minHeight="48dp" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="380dp"
-            android:layout_height="260dp"/>
+            android:layout_height="260dp"
+            android:layout_marginTop="10dp"
+            />
 
-        <Button
+        <TextView
             android:id="@+id/addPhotoButton"
-            android:layout_width="wrap_content"
-            android:layout_height="64dp"
-            android:text="Dodaj Zdjecie" />
+            android:layout_width="378dp"
+            android:layout_height="wrap_content"
+            android:background="@color/Buttons"
+            android:gravity="center"
+            android:padding="6dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:text="Dodaj Zdjecie"
+            android:layout_marginTop="10dp"
+            />
 
 
         <EditText
             android:id="@+id/ingredientsEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
             android:hint="Składniki"
+            android:background="#75FFFFFF"
             android:minHeight="48dp" />
 
-        <Button
+        <TextView
             android:id="@+id/addIngredientButton"
-            android:layout_width="wrap_content"
+            android:layout_width="378dp"
             android:layout_height="wrap_content"
-            android:text="Dodaj składnik" />
+            android:background="@color/Buttons"
+            android:gravity="center"
+            android:padding="6dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:text="Dodaj składnik"
+            android:layout_marginTop="10dp"
+            />
 
         <TextView
             android:id="@+id/ingredientTextView"
@@ -50,7 +71,8 @@
             android:padding="8dp"
             android:textSize="16sp"
             android:textColor="@android:color/black"
-            android:text="Ingredient Name" />
+            android:text="Ingredient Name"
+            android:background="#75FFFFFF"/>
 
         <LinearLayout
             android:id="@+id/ingredientsLayout"
@@ -63,19 +85,43 @@
             android:id="@+id/instructionsEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Instrukcje" />
+            android:minHeight="48dp"
+            android:layout_marginTop="20sp"
+            android:hint="Instrukcje"
+            android:background="#75FFFFFF"/>
 
-        <Button
+        <TextView
             android:id="@+id/addRecipeButton"
-            android:layout_width="wrap_content"
+            android:layout_width="379dp"
             android:layout_height="wrap_content"
-            android:text="Dodaj przepis" />
+            android:background="@color/Buttons"
+            android:gravity="center"
+            android:padding="6dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:text="Dodaj przepis"
+            android:layout_marginTop="10dp"
+            />
 
         <CheckBox
             android:id="@+id/shareRecipeCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
             android:text="Udostępnij przepis" />
+
+        <TextView
+            android:id="@+id/backToHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Buttons"
+            android:gravity="center"
+            android:padding="6dp"
+            android:layout_marginTop="20sp"
+            android:text="Powrót"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            />
 
     </LinearLayout>
 </ScrollView>

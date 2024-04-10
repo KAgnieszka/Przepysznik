@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/background_color">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,6 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Wprowadź nazwę przepisu"
+        android:background="#75FFFFFF"
+        android:padding="6dp"
         android:inputType="text" />
 
     <TextView
@@ -29,7 +32,8 @@
         android:id="@+id/skladnikiPrzepisuEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Wprowadź składniki przepisu"
+        android:background="#75FFFFFF"
+        android:hint=" Wprowadź składniki przepisu"
         android:inputType="textMultiLine"
         android:minLines="3" />
 
@@ -44,7 +48,8 @@
         android:id="@+id/instrukcjePrzepisuEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Wprowadź instrukcje przepisu"
+        android:hint=" Wprowadź instrukcje przepisu"
+        android:background="#75FFFFFF"
         android:inputType="textMultiLine"
         android:minLines="3" />
 
@@ -56,12 +61,30 @@
         android:adjustViewBounds="true"
         android:scaleType="centerCrop" />
 
-    <Button
+    <TextView
         android:id="@+id/aktualizujButton"
-        android:layout_width="wrap_content"
+        android:layout_width="378dp"
         android:layout_height="wrap_content"
+        android:background="@color/Buttons"
+        android:gravity="center"
+        android:padding="6dp"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
         android:text="Aktualizuj"
         android:layout_gravity="center"
         android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/backToHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Buttons"
+        android:gravity="center"
+        android:padding="6dp"
+        android:layout_marginTop="48sp"
+        android:text="Powrót"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        />
 
 </LinearLayout>
