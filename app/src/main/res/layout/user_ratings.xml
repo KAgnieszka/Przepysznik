@@ -1,56 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CAFF8C"
-    android:padding="20dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#CAFF8C"
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf = "parent"
+        android:layout_marginBottom="20dp"
+        android:background="#75FFFFFF"
         android:text="@string/opinie_u_ytkownik_w"
-        android:textStyle="bold"
+        android:textAlignment="center"
         android:textSize="25sp"
-        android:layout_marginBottom="10dp"
-        />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tablica_opinii"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tittle"
-        android:background="#FFF"/>
+        android:layout_marginTop="20dp"
+        android:background="#FFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tittle" />
 
-    <Button
+    <TextView
         android:id="@+id/backToRating"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/tablica_opinii"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="15dp"
+        android:background="@color/Buttons"
+        android:gravity="center"
+        android:padding="6dp"
         android:text="@string/powr_t_do_oce_nas"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf = "parent"
-        />
-
-    <Button
-        android:id="@+id/backToHome"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
-        android:text="@string/powr_t_na_g_wn"
-        android:textSize="15sp"
-        android:layout_below="@id/tablica_opinii"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_alignParentEnd="true"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tablica_opinii" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/backToHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/Buttons"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="Powrót na główną"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backToRating" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

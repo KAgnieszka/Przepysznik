@@ -15,13 +15,13 @@ public class RateUs extends AppCompatActivity {
     RatingBar ratingbar; //gwiazdki do przydzielenia
     TextView rateCount; // do wyswietlenia zly dobry, najlepszy w zaleznosci ile gwiazdek
     EditText opinia; //miejsce do napisania opinii
-    private Button ocenButton;
-    private Button powrotHomeButton;
+    private TextView ocenButton;
+    private TextView powrotHomeButton;
     TextView showRating;
 
     float rateValue; //do zapisania wartosci gwiazdek
     String przydzieloneGwiazdki;
-    private Button showRatingApps;
+    private TextView showRatingApps;
 
 
     @Override

@@ -54,7 +54,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
     private TextView commentTextView; // TextView do wyświetlania komentarza
     private TextView commentTimeTextView; // TextView do wyświetlania czasu dodania komentarza
     private EditText commentEditText;
-    private Button addCommentButton;
+    private TextView addCommentButton;
     private RecyclerView recyclerView;
 
 
@@ -70,7 +70,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
         TextView recipeNameTextView = findViewById(R.id.recipeNameTextView);
         TextView recipeIngredientsTextView = findViewById(R.id.recipeIngredientsTextView);
         TextView recipeInstructionsTextView = findViewById(R.id.recipeInstructionsTextView);
-        Button rateRecipeButton = findViewById(R.id.rateRecipeButton);
+        TextView rateRecipeButton = findViewById(R.id.rateRecipeButton);
         averageRatingTextView = findViewById(R.id.averageRatingTextView); // Inicjalizacja TextView do wyświetlania średniej oceny
         commentTextView = findViewById(R.id.commentTextView); // Inicjalizacja TextView do wyświetlania komentarza
         commentTimeTextView = findViewById(R.id.commentTimeTextView); // Inicjalizacja TextView do wyświetlania czasu dodania komentarza

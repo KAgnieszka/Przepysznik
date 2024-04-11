@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class UserRatings extends AppCompatActivity {
 
     TextView userRatings;
-    Button backToRating;
-    Button backToHome;
+    TextView backToRating;
+    TextView backToHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.przepysznik.register.LogIn;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private Button logout;
-    private Button przycisk, settings, gps, chat;
+    private TextView przycisk, settings, gps, chat;
 
     // --- Menu boczne --- //
     DrawerLayout drawerLayout;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     // --- REKLAMY --- //
     private InterstitialAd mInterstitialAd;
-    private Button adBtn;
+    private TextView adBtn;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

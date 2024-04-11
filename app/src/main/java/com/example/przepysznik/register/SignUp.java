@@ -8,6 +8,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -30,10 +31,10 @@ public class SignUp extends AppCompatActivity {
     private EditText passwordEditText;
     private EditText nicknameEditText;
     private EditText birthDateEditText;
-    private Button registerButton;
+    private TextView registerButton;
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
-    private Button backtologin;
+    private TextView backtologin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

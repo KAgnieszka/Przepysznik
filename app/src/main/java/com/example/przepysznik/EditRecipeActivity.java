@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,7 +27,7 @@ public class EditRecipeActivity extends AppCompatActivity {
     private EditText nazwaPrzepisuEditText;
     private EditText skladnikiPrzepisuEditText;
     private EditText instrukcjePrzepisuEditText;
-    private Button aktualizujButton;
+    private TextView aktualizujButton;
     private ImageView zdjeciePrzepisuImageView;
 
     private String recipeId;

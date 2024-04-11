@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/background_color">
 
     <!-- STRONA GŁÓWNA-->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,76 +16,119 @@
         android:orientation="vertical">
 
 
-        <Button
+        <TextView
             android:id="@+id/przycisk"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#4CAF50"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/Buttons"
+            android:gravity="center"
+            android:padding="6dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
             android:text="Przejscie do dodawania przepisów"
-            app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logout"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:ignore="MissingConstraints" />
 
-        <Button
+        <TextView
             android:id="@+id/chat"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="212dp"
-            android:layout_marginBottom="488dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/Buttons"
+            android:gravity="center"
+            android:padding="6dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
             android:text="Czat"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ustawienia"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/przycisk" />
 
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/settings"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/Buttons"
+            android:gravity="center"
+            android:padding="6dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:text="Ustawienia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gps" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="10dp"
             android:text="@string/strona_g_wna"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="#75FFFFFF"
+            android:gravity="center"
+            android:padding="6dp"
+            android:textSize="20sp"
+            android:textColor="#000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <TextView
             android:id="@+id/reklama"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="132dp"
-            android:layout_marginBottom="252dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:text="Reklama"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:background="@color/Buttons"
+            android:gravity="center"
+            android:padding="6dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings" />
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/reklama1"
-            android:layout_width="wrap_content"
+            android:layout_width="411dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="44dp"
             app:adSize="BANNER"
             app:adUnitId="ca-app-pub-3940256099942544/9214589741"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="543dp" />
+            tools:layout_editor_absoluteY="682dp" />
 
-        <Button
+        <TextView
             android:id="@+id/gps"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="208dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:text="Pokaż sklepy w pobliżu"
+            android:background="@color/Buttons"
+            android:gravity="center"
+            android:padding="6dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="130dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chat"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

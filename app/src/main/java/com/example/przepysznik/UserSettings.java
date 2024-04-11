@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,8 +32,8 @@ public class UserSettings extends AppCompatActivity {
     private EditText editHaslo2;
 
 
-    private Button zapiszDane;
-    private Button powrotHome;
+    private TextView zapiszDane;
+    private TextView powrotHome;
 
     private FirebaseAuth mAuth;
 
@@ -47,7 +48,7 @@ public class UserSettings extends AppCompatActivity {
         editHaslo1 = findViewById(R.id.edit_password1);
         editHaslo2 = findViewById(R.id.edit_password2);
         zapiszDane = findViewById(R.id.zapiszDaneButton);
-        powrotHome = findViewById(R.id.backToHomeButton);
+        powrotHome = findViewById(R.id.backToHome);
 
         zapiszDane.setOnClickListener(new View.OnClickListener() {
             @Override

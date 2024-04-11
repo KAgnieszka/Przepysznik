@@ -8,6 +8,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,9 +24,9 @@ public class LogIn extends AppCompatActivity {
 
     private EditText emailEditText;
     private EditText passwordEditText;
-    private Button loginButton;
-    private Button resetPasswordButton;
-    private  Button register;
+    private TextView loginButton;
+    private TextView resetPasswordButton;
+    private  TextView register;
     private FirebaseAuth mAuth;
 
     @Override

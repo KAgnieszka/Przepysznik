@@ -16,7 +16,7 @@
             android:id="@+id/recipeNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nazwa przepisu"
+            android:hint=" Nazwa przepisu"
             android:background="#75FFFFFF"
             android:minHeight="48dp" />
 
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
-            android:hint="Składniki"
+            android:hint=" Składniki"
             android:background="#75FFFFFF"
             android:minHeight="48dp" />
 
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:layout_marginTop="20sp"
-            android:hint="Instrukcje"
+            android:hint=" Instrukcje"
             android:background="#75FFFFFF"/>
 
         <TextView

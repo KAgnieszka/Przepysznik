@@ -51,7 +51,7 @@ public class Chat extends AppCompatActivity {
     private static String USERNAME = "testclient";
     private static String PASSWORD = "TestClient1";
 
-    private Button poleczeniePrzycisk, wyslijWiadomosc;
+    private TextView poleczeniePrzycisk, wyslijWiadomosc;
     private TextView polaczenieTest, mqttMessage;
     public EditText wiadomoscText, poleTytulText;
     public String message, titleText;
@@ -71,9 +71,9 @@ public class Chat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat);
-        poleczeniePrzycisk = findViewById(R.id.poleczeniePrzycisk);
-        wyslijWiadomosc = findViewById(R.id.wyslijWiadomosc);
-        polaczenieTest = findViewById(R.id.connectionText);
+       // poleczeniePrzycisk = findViewById(R.id.poleczeniePrzycisk);
+       // wyslijWiadomosc = findViewById(R.id.wyslijWiadomosc);
+       // polaczenieTest = findViewById(R.id.connectionText);
         wiadomoscText = findViewById(R.id.wiadomoscText);
         //mqttMessage = findViewById(R.id.mqttMessage);
         //poleTytulText = findViewById(R.id.tytulText);

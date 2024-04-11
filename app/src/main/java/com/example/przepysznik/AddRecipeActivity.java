@@ -34,12 +34,12 @@ public class AddRecipeActivity extends AppCompatActivity {
     private EditText recipeNameEditText;
     private EditText ingredientsEditText;
     private EditText instructionsEditText;
-    private Button addRecipeButton;
-    private Button addIngredientButton;
+    private TextView addRecipeButton;
+    private TextView addIngredientButton;
     private LinearLayout ingredientsLayout; // Dodane
     private List<String> ingredientsList;
 
-    private Button addPhotoButton;
+    private TextView addPhotoButton;
     private ImageView imageView;
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri imageUri;

@@ -35,7 +35,7 @@ public class Share_Recipe extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipes");
 
-        Button addRecipeButton = findViewById(R.id.addRecipeButton);
+        TextView addRecipeButton = findViewById(R.id.addRecipeButton);
         addRecipeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

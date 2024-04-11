@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="250dp"
     android:layout_height="200dp"
-    android:padding="10dp"
-    android:orientation="vertical"
+    android:scaleX="0.8"
+    android:scaleY="0.85"
     android:background="@drawable/logo1"
     android:gravity="bottom"
-    >
+    android:orientation="vertical"
+    android:padding="50dp">
 
 </LinearLayout>
