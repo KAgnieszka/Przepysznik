@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setTheme(R.style.AppTheme); // Ustawienie tematu z ActionBar
         setContentView(R.layout.activity_main);
         przycisk = findViewById(R.id.przycisk);
         chat = findViewById(R.id.chat);
@@ -189,10 +188,6 @@ public class MainActivity extends AppCompatActivity {
                 if(id == R.id.cookbook)
                 {
                     Toast.makeText(MainActivity.this, "Wybrano książkę kucharską", Toast.LENGTH_SHORT).show();
-                }
-                if(id == R.id.phoneCall)
-                {
-                    Toast.makeText(MainActivity.this, "Wybrano telefon", Toast.LENGTH_SHORT).show();
                 }
                 if(id == R.id.ustawienia)
                 {

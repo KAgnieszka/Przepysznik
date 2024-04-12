@@ -28,11 +28,6 @@
                     android:title="Książka kucharska"
                     />
 
-                <item android:id="@+id/phoneCall"
-                    android:icon="@drawable/baseline_add_call_24"
-                    android:title="Telefon"
-                    />
-
                 <item android:id="@+id/ustawienia"
                     android:icon="@drawable/baseline_construction_24"
                     android:title="Ustawienia"
