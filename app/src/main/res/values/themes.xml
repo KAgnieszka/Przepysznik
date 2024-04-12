@@ -9,6 +9,7 @@
         <item name="colorPrimary">@color/theme1</item>
         <item name="colorPrimaryVariant">@color/theme2</item>
         <item name="colorAccent">@color/theme3</item>
+        //TUTAJ DODAWAC KOLORY I OBRAZKI DO MOTYWU JASNEGO
     </style>
 
     <style name="Theme.Przepysznik" parent="Base.Theme.Przepysznik" />

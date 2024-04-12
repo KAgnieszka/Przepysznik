@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b126798-7e0c-49ff-bbda-e7edd6c4f870" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/ingredient_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/przepysznik/AddRecipeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/przepysznik/AddRecipeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/przepysznik/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/przepysznik/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/przepysznik/ViewRecipeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/przepysznik/ViewRecipeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_add_recipe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_add_recipe.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8b126798-7e0c-49ff-bbda-e7edd6c4f870" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +37,7 @@
     "android.gradle.sync.needed": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Merging master",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/agus9/OneDrive/Pulpit/AndroidApps/Przepysznik"
   }
