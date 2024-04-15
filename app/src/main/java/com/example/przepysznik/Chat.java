@@ -72,7 +72,7 @@ public class Chat extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat);
        // poleczeniePrzycisk = findViewById(R.id.poleczeniePrzycisk);
-       // wyslijWiadomosc = findViewById(R.id.wyslijWiadomosc);
+       wyslijWiadomosc = findViewById(R.id.wyslijWiadomosc);
        // polaczenieTest = findViewById(R.id.connectionText);
         wiadomoscText = findViewById(R.id.wiadomoscText);
         //mqttMessage = findViewById(R.id.mqttMessage);
@@ -86,27 +86,30 @@ public class Chat extends AppCompatActivity {
         options.setUserName(USERNAME);
         options.setPassword(PASSWORD.toCharArray());
 
+        client5.toBlocking().connectWith()
+                .simpleAuth()
+                .username(USERNAME)
+                .password(PASSWORD.getBytes())
+                .applySimpleAuth()
+                .willPublish()
+                .topic("Connection")
+                .payload(("User: "+USERNAME+" connected").getBytes())
+                .applyWillPublish()
+                .send();
+        Log.d(TAG, "MQTT connected");
 
+        /*
         poleczeniePrzycisk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                client5.toBlocking().connectWith()
-                        .simpleAuth()
-                        .username(USERNAME)
-                        .password(PASSWORD.getBytes())
-                        .applySimpleAuth()
-                        .willPublish()
-                        .topic("Connection")
-                        .payload(("User: "+USERNAME+" connected").getBytes())
-                        .applyWillPublish()
-                        .send();
+
 
                 polaczenieTest.setText("Połączono z MQTT");
-                Log.d(TAG, "MQTT connected");
+
 
             }
-        });
+        });*/
 
         wyslijWiadomosc.setOnClickListener(new View.OnClickListener() {
             @Override
