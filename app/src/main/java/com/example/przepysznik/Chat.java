@@ -78,6 +78,7 @@ public class Chat extends AppCompatActivity {
         //mqttMessage = findViewById(R.id.mqttMessage);
         //poleTytulText = findViewById(R.id.tytulText);
         textLogs = findViewById(R.id.textLogs);
+        powrotHome = findViewById(R.id.backToHome);
 
 
         //client = new MqttAndroidClient(this.getApplicationContext(), Broker_URL, hardwareAddress);
