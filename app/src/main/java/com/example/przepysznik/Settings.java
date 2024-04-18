@@ -21,7 +21,7 @@ import com.example.przepysznik.R;
 import java.util.ArrayList;
 
 public class Settings extends AppCompatActivity{
-    private TextView jezyk, trybJasny, trybCiemny;
+    private TextView jezyk, trybJasny, trybCiemny, powrotHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,7 @@ public class Settings extends AppCompatActivity{
         jezyk = findViewById(R.id.jezyk);
         trybJasny = findViewById(R.id.trybJasny);
         trybCiemny = findViewById(R.id.trybCiemny);
+        powrotHome = findViewById(R.id.backToHome);
 
 
         //Po nacisnieciu przycisku, otwieraja sie ustawienia systemowe do zmiany jezyka systemu.
@@ -52,6 +53,15 @@ public class Settings extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        });
+
+        powrotHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Przenosimy użytkownika spowrotem na główną
+                startActivity(new Intent(Settings.this, MainActivity.class));
+                finish();
             }
         });
     }

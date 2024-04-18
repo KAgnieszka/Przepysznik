@@ -2,15 +2,19 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Przepysznik" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/gray</item>
-        <item name="android:text">@color/White</item>
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">#041C45</item>
+        <item name="android:textColor">#041C45</item>
+        <item name="colorButtons">#B58D00</item>
+        <item name="background_color">@color/background_color</item>
+        <item name="android:color">#FFFFFF</item>
     </style>
 
     <style name="AppTheme" parent="Theme.Material3.DynamicColors.Light">
-        <item name="colorPrimary">#539C00</item>
-        <item name="colorPrimaryVariant">#135115</item>
-        <item name="colorAccent">#B1A110</item>
-        //TUTAJ DODAWAC KOLORY I OBAZKI DO MOTYWU CIEMNEGO
+        <item name="colorPrimary">#041C45</item>
+        <item name="android:textColor">#041C45</item>
+        <item name="colorButtons">#B58D00</item>
+        <item name="background_color">#041C45</item>
+        <item name="android:color">#FFFFFF</item>
+        <!-- TUTAJ DODAWAC KOLORY I OBAZKI DO MOTYWU CIEMNEGO -->
     </style>
 </resources>

@@ -83,9 +83,9 @@ public class Share_Recipe extends AppCompatActivity {
         // Inicjalizacja elementów widoku przepisu
         TextView recipeNameTextView = recipeView.findViewById(R.id.recipeNameTextView);
         ImageView recipeImageView = recipeView.findViewById(R.id.recipeImageView);
-        Button viewRecipeButton = recipeView.findViewById(R.id.viewRecipeButton);
-        Button editRecipeButton = recipeView.findViewById(R.id.editRecipeButton);
-        Button deleteRecipeButton = recipeView.findViewById(R.id.deleteRecipeButton);
+        TextView viewRecipeButton = recipeView.findViewById(R.id.viewRecipeButton);
+        TextView editRecipeButton = recipeView.findViewById(R.id.editRecipeButton);
+        TextView deleteRecipeButton = recipeView.findViewById(R.id.deleteRecipeButton);
 
         // Ustawienie nazwy przepisu i wyświetlenie zdjęcia (jeśli dostępne)
         recipeNameTextView.setText(recipe.getRecipeName());

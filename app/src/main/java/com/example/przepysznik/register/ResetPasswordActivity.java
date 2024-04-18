@@ -13,7 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.przepysznik.MainActivity;
 import com.example.przepysznik.R;
+import com.example.przepysznik.UserSettings;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +24,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     private EditText emailResetEditText;
     private TextView resetPasswordConfirmButton;
+    private TextView powrotLogIn = findViewById(R.id.backToLogIn);
     private FirebaseAuth mAuth;
 
     @Override
@@ -33,7 +36,6 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         emailResetEditText = findViewById(R.id.emailResetEditText);
         resetPasswordConfirmButton = findViewById(R.id.resetPasswordConfirmButton);
-
         resetPasswordConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,5 +65,13 @@ public class ResetPasswordActivity extends AppCompatActivity {
                         }
                     }
                 });
-    }
-}
+
+        powrotLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Przenosimy użytkownika spowrotem do logIn
+                startActivity(new Intent(ResetPasswordActivity.this, LogIn.class));
+                finish();
+            }
+    });
+}}

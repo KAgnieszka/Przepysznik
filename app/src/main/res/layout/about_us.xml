@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="?attr/background_color"
     android:padding="20dp">
 
     <TextView
@@ -14,6 +14,7 @@
         android:layout_marginBottom="20dp"
         android:background="#75FFFFFF"
         android:text="@string/o_nas"
+        android:textColor="?attr/android:color"
         android:textAlignment="center"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -27,6 +28,7 @@
         android:layout_below="@id/tekst1"
         android:layout_marginTop="28dp"
         android:layout_marginBottom="24dp"
+        android:textColor="?attr/android:color"
         android:background="#75FFFFFF"
         android:text="@string/o_nas_opis"
         android:textAlignment="center"
@@ -43,6 +45,7 @@
         android:layout_below="@id/tekst1"
         android:layout_marginTop="28dp"
         android:background="#75FFFFFF"
+        android:textColor="?attr/android:color"
         android:padding="5sp"
         android:text="@string/telefon_48_352208492"
         android:textAlignment="center"
@@ -58,6 +61,7 @@
         android:layout_marginTop="24dp"
         android:background="#75FFFFFF"
         android:text="@string/e_mail_spokoquzko_wp_pl"
+        android:textColor="?attr/android:color"
         android:textSize="20sp"
         android:padding="5sp"
         android:textAlignment="center"
@@ -72,14 +76,17 @@
         android:layout_height="66dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="156dp"
-        android:background="@color/Buttons"
+        android:background="?attr/colorButtons"
+        android:textColor="?attr/android:textColor"
         android:gravity="center"
         android:padding="16dp"
         android:text="@string/powr_t"
-        android:textColor="#FFFFFF"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/tekst4" />
+        app:layout_constraintTop_toBottomOf="@+id/tekst4"
+        app:layout_constraintVertical_bias="0.022" />
 
     <ImageView
         android:id="@+id/imageView2"

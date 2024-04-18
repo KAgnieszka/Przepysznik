@@ -5,7 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="?attr/background_color"
     android:padding="16dp">
 
     <EditText
@@ -26,11 +26,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:background="@color/Buttons"
+        android:background="?attr/colorButtons"
+        android:textColor="?attr/android:textColor"
         android:gravity="center"
         android:padding="16dp"
         android:text="Zarejestruj"
-        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/backtologin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -42,7 +42,7 @@
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="Masz już konto? Zaloguj się!"
-        android:textColor="@android:color/black"
+        android:textColor="?attr/android:color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

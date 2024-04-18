@@ -4,7 +4,7 @@
     android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="?attr/background_color"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -13,7 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:padding="6dp"
         android:background="#75FFFFFF"
+        android:textColor="?attr/android:color"
         android:text="@string/ocen_nasz_aplikacj"
         android:textAlignment="center"
         android:textSize="25sp"
@@ -44,9 +46,11 @@
         android:id="@+id/opinia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:hint="@string/napisz_opini"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rateCount" />
+        app:layout_constraintTop_toBottomOf="@+id/rating_bar" />
 
     <TextView
         android:id="@+id/backToHome"
@@ -54,11 +58,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
-        android:background="@color/Buttons"
+        android:background="?attr/colorButtons"
+        android:textColor="?attr/android:textColor"
         android:gravity="center"
         android:padding="16dp"
         android:text="@string/mo_e_p_niej"
-        android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/opinia" />
@@ -69,11 +73,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
-        android:background="@color/Buttons"
+        android:background="?attr/colorButtons"
+        android:textColor="?attr/android:textColor"
         android:gravity="center"
         android:padding="16dp"
         android:text="@string/oce"
-        android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/opinia" />
@@ -93,15 +97,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:background="@color/Buttons"
+        android:background="?attr/colorButtons"
+        android:textColor="?attr/android:textColor"
         android:gravity="center"
         android:padding="16dp"
         android:text="Pokaż opinie użytkowników"
-        android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backToHome"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

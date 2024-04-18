@@ -6,15 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/background_color">
+    android:background="?attr/background_color">
 
     <TextView
         android:id="@+id/tekst"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:padding="6dp"
         android:text="@string/podaj_nowe_dane"
         android:textAlignment="center"
+        android:textColor="?attr/android:color"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +52,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:background="#75FFFFFF"
         android:hint="  Powtórz hasło"
         android:inputType="textPassword"
@@ -61,33 +61,34 @@
 
     <TextView
         android:id="@+id/zapiszDaneButton"
-        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:background="@color/Buttons"
+        android:layout_marginTop="8dp"
+        android:background="?attr/colorButtons"
         android:gravity="center"
         android:padding="6dp"
         android:text="Zapisz zmiany"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/android:textColor"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_password2" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_password2" />
 
     <TextView
         android:id="@+id/backToHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:background="@color/Buttons"
+        android:background="?attr/colorButtons"
         android:gravity="center"
         android:padding="6dp"
         android:text="Powrót"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/android:textColor"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zapiszDaneButton"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

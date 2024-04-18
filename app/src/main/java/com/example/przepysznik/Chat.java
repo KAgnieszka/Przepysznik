@@ -52,7 +52,7 @@ public class Chat extends AppCompatActivity {
     private static String PASSWORD = "TestClient1";
 
     private TextView poleczeniePrzycisk, wyslijWiadomosc;
-    private TextView polaczenieTest, mqttMessage;
+    private TextView polaczenieTest, mqttMessage, powrotHome;
     public EditText wiadomoscText, poleTytulText;
     public String message, titleText;
     private AppCompatTextView textLogs;
@@ -129,6 +129,15 @@ public class Chat extends AppCompatActivity {
 
                 //poleTytulText.setText("");
                 wiadomoscText.setText("");
+            }
+        });
+
+        powrotHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Przenosimy użytkownika spowrotem na główną
+                startActivity(new Intent(Chat.this, MainActivity.class));
+                finish();
             }
         });
 

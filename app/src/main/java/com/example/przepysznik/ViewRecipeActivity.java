@@ -1,6 +1,7 @@
 package com.example.przepysznik;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -56,6 +57,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
     private EditText commentEditText;
     private TextView addCommentButton;
     private RecyclerView recyclerView;
+    private TextView powrotHome;
 
 
     @Override
@@ -77,6 +79,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
         commentEditText = findViewById(R.id.commentEditText);
         addCommentButton = findViewById(R.id.addCommentButton);
         recyclerView = findViewById(R.id.recyclerViewComments);
+        powrotHome = findViewById(R.id.backToHome);
 
         // Pobieranie ID przepisu przekazanego z poprzedniego activity
         recipeId = getIntent().getStringExtra("recipeId");
@@ -123,6 +126,15 @@ public class ViewRecipeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addComment();
+            }
+        });
+
+        powrotHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Przenosimy użytkownika spowrotem na główną
+                startActivity(new Intent(ViewRecipeActivity.this, MainActivity.class));
+                finish();
             }
         });
 

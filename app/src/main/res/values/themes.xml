@@ -9,7 +9,12 @@
         <item name="colorPrimary">@color/theme1</item>
         <item name="colorPrimaryVariant">@color/theme2</item>
         <item name="colorAccent">@color/theme3</item>
-        //TUTAJ DODAWAC KOLORY I OBRAZKI DO MOTYWU JASNEGO
+        <item name="colorButtons">@color/Buttons</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="background_color">@color/background_color</item>
+        <item name="android:color">#000000</item>
+        <!-- Dodatkowe definicje kolorów -->
+        <!-- TUTAJ DODAWAC KOLORY I OBRAZKI DO MOTYWU JASNEGO -->
     </style>
 
     <style name="Theme.Przepysznik" parent="Base.Theme.Przepysznik" />

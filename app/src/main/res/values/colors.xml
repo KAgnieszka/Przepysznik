@@ -6,12 +6,12 @@
     <color name="Red">#FF0000</color>
     <color name="Buttons">#DB4C4D</color>
     <color name="background_color">#FAC684</color>
+    <color name="Buttons2">#B58D00</color>
+    <color name="background_color2">#041C45</color>
+    <attr name="colorButtons" format="color" />
+    <attr name="background_color" format="color" />
 
-    <color name="theme1">#8BC34A</color> <!-- Kolor theme jasny kolor podstawowy -->
-    <color name="theme2">#4CAF50</color> <!-- Kolor theme ciemny kolor podstawowy -->
-    <color name="theme3">#FFEB3B</color> <!-- Kolor theme kolor akcentu -->
-
-    
-    <color name="colorAccent">#FF4081</color>
->>>>>>> 84f63b27f072cb2de76abaa18a4edac8597f4252
+    <color name="theme1">#E4B579</color> <!-- Kolor theme jasny kolor podstawowy -->
+    <color name="theme2">#041B41</color> <!-- Kolor theme ciemny kolor podstawowy -->
+    <color name="theme3">#D44A4B</color> <!-- Kolor theme kolor akcentu -->
 </resources>

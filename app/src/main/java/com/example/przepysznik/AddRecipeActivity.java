@@ -39,7 +39,7 @@ public class AddRecipeActivity extends AppCompatActivity {
     private LinearLayout ingredientsLayout; // Dodane
     private List<String> ingredientsList;
 
-    private TextView addPhotoButton;
+    private TextView addPhotoButton, powrotHome;
     private ImageView imageView;
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri imageUri;
@@ -72,6 +72,7 @@ public class AddRecipeActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         ingredientsLayout = findViewById(R.id.ingredientsLayout);
         shareRecipeCheckBox = findViewById(R.id.shareRecipeCheckBox);
+        powrotHome = findViewById(R.id.backToHome);
 
         ingredientsList = new ArrayList<>();
 
@@ -93,6 +94,15 @@ public class AddRecipeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openFileChooser();
+            }
+        });
+
+        powrotHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Przenosimy użytkownika spowrotem na główną
+                startActivity(new Intent(AddRecipeActivity.this, MainActivity.class));
+                finish();
             }
         });
     }
@@ -186,4 +196,6 @@ public class AddRecipeActivity extends AppCompatActivity {
             imageView.setImageURI(imageUri);
         }
     }
+
+
 }

@@ -5,7 +5,7 @@
     android:id="@+id/relativeLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="?attr/background_color"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -15,6 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:background="#75FFFFFF"
+        android:textColor="?attr/android:color"
+        android:padding="6dp"
         android:text="@string/opinie_u_ytkownik_w"
         android:textAlignment="center"
         android:textSize="25sp"
@@ -36,11 +38,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@color/Buttons"
+        android:background="?attr/colorButtons"
+        android:textColor="?attr/android:textColor"
         android:gravity="center"
         android:padding="6dp"
         android:text="@string/powr_t_do_oce_nas"
-        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,14 +53,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@color/Buttons"
+        android:background="?attr/colorButtons"
         android:gravity="center"
         android:padding="6dp"
         android:text="Powrót na główną"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/android:textColor"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backToRating" />
+        app:layout_constraintTop_toBottomOf="@+id/backToRating"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color">
+    android:background="?attr/background_color">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/averageRatingTextView"
             android:background="#75FFFFFF"
-            android:padding="4dp"
+            android:textColor="?attr/android:color"
+            android:padding="6dp"
             android:textSize="30sp"
             android:textStyle="bold"
             android:text="Recipe Name"
@@ -37,6 +38,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_below="@id/recipeNameTextView"
+            android:textColor="?attr/android:color"
             android:text="Składniki: "/>
 
         <TextView
@@ -56,6 +58,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_below="@id/recipeIngredientsTextView"
+            android:textColor="?attr/android:color"
             android:text="Przepis: "/>
 
         <TextView
@@ -76,21 +79,20 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:textColor="@color/Buttons"
             android:text="Średnia ocena: "
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/rateRecipeButton"
-            android:background="@color/Buttons"
+            android:background="?attr/colorButtons"
+            android:textColor="?attr/android:textColor"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:padding="6dp"
             android:textSize="20sp"
-            android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="41dp"
             android:layout_below="@+id/recipeInstructionsTextView"
@@ -109,7 +111,8 @@
 
         <TextView
             android:id="@+id/addCommentButton"
-            android:background="@color/Buttons"
+            android:background="?attr/colorButtons"
+            android:textColor="?attr/android:textColor"
             android:layout_width="wrap_content"
             android:layout_height="41dp"
             android:layout_marginTop="16dp"
@@ -117,7 +120,6 @@
             android:gravity="center"
             android:padding="6dp"
             android:textSize="20sp"
-            android:textColor="#FFFFFF"
             android:layout_below="@id/commentEditText"
             android:text="Dodaj komentarz" />
 
@@ -152,12 +154,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/recyclerViewComments"
-            android:layout_marginTop="141dp"
-            android:background="@color/Buttons"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="201dp"
+            android:layout_marginBottom="17dp"
+            android:background="?attr/colorButtons"
+            android:textColor="?attr/android:textColor"
             android:gravity="center"
             android:padding="6dp"
             android:text="Powrót"
-            android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
     </RelativeLayout>

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/background_color"
+    android:background="?attr/background_color"
     >
 
     <LinearLayout
@@ -31,11 +31,11 @@
             android:id="@+id/addPhotoButton"
             android:layout_width="378dp"
             android:layout_height="wrap_content"
-            android:background="@color/Buttons"
+            android:background="?attr/colorButtons"
+            android:textColor="?attr/android:textColor"
             android:gravity="center"
             android:padding="6dp"
             android:textSize="20sp"
-            android:textColor="#FFFFFF"
             android:text="Dodaj Zdjecie"
             android:layout_marginTop="10dp"
             />
@@ -54,11 +54,11 @@
             android:id="@+id/addIngredientButton"
             android:layout_width="378dp"
             android:layout_height="wrap_content"
-            android:background="@color/Buttons"
+            android:background="?attr/colorButtons"
+            android:textColor="?attr/android:textColor"
             android:gravity="center"
             android:padding="6dp"
             android:textSize="20sp"
-            android:textColor="#FFFFFF"
             android:text="Dodaj składnik"
             android:layout_marginTop="10dp"
             />
@@ -94,11 +94,11 @@
             android:id="@+id/addRecipeButton"
             android:layout_width="379dp"
             android:layout_height="wrap_content"
-            android:background="@color/Buttons"
+            android:background="?attr/colorButtons"
+            android:textColor="?attr/android:textColor"
             android:gravity="center"
             android:padding="6dp"
             android:textSize="20sp"
-            android:textColor="#FFFFFF"
             android:text="Dodaj przepis"
             android:layout_marginTop="10dp"
             />
@@ -114,13 +114,13 @@
             android:id="@+id/backToHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Buttons"
+            android:background="?attr/colorButtons"
+            android:textColor="?attr/android:textColor"
             android:gravity="center"
             android:padding="6dp"
             android:layout_marginTop="20sp"
             android:text="Powrót"
             android:textSize="20sp"
-            android:textColor="#FFFFFF"
             />
 
     </LinearLayout>
