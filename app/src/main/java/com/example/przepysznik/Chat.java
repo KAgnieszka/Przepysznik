@@ -6,38 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.example.przepysznik.register.LogIn;
-import com.hivemq.client.mqtt.datatypes.MqttTopicFilter;
 import com.hivemq.client.mqtt.mqtt5.Mqtt5Client;
 
-import org.eclipse.paho.client.mqttv3.IMqttActionListener;
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.IMqttToken;
-import org.eclipse.paho.client.mqttv3.MqttCallback;
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.eclipse.paho.android.service.MqttAndroidClient;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
-import java.nio.charset.StandardCharsets;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 
 //Uzyto Ecplise Paho library
@@ -71,9 +51,9 @@ public class Chat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat);
-       // poleczeniePrzycisk = findViewById(R.id.poleczeniePrzycisk);
-       wyslijWiadomosc = findViewById(R.id.wyslijWiadomosc);
-       // polaczenieTest = findViewById(R.id.connectionText);
+        // poleczeniePrzycisk = findViewById(R.id.poleczeniePrzycisk);
+        wyslijWiadomosc = findViewById(R.id.wyslijWiadomosc);
+        // polaczenieTest = findViewById(R.id.connectionText);
         wiadomoscText = findViewById(R.id.wiadomoscText);
         //mqttMessage = findViewById(R.id.mqttMessage);
         //poleTytulText = findViewById(R.id.tytulText);
