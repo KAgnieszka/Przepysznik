@@ -173,9 +173,10 @@ public class AddRecipeActivity extends AppCompatActivity {
     private void addIngredientView(String ingredient) {
         View ingredientView = getLayoutInflater().inflate(R.layout.ingredient_item, null);
         TextView ingredientTextView = ingredientView.findViewById(R.id.ingredientTextView);
-        Button removeIngredientButton = ingredientView.findViewById(R.id.removeIngredientButton);
+        //Button removeIngredientButton = ingredientView.findViewById(R.id.removeIngredientButton);
 
         ingredientTextView.setText(ingredient);
+        /*
         removeIngredientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -183,7 +184,7 @@ public class AddRecipeActivity extends AppCompatActivity {
                 ingredientsList.remove(ingredient);
                 ingredientsLayout.removeView(ingredientView);
             }
-        });
+        });*/
 
         ingredientsLayout.addView(ingredientView);
     }
