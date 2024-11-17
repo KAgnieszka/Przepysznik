@@ -1,1 +1,1 @@
-Projekt 4 wspaniałych programistów, przynoszący tytuł inż. Czyli I nieźle Żyć! :)
+Projekt 4 programistów, przynoszący tytuł inż. :)
